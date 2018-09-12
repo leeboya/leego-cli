@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+
+process.env.NODE_PATH = __dirname + './../node_modules'
+
+const { resolve } = require('path')
+const program = require('commander')
+const minimist = require('minimist')
+const chalk = require('chalk')
+const res = cmd => resolve(__dirname, '../cmd/', cmd)
+const args = minimist(process.argv.slice(2))
+const cmdArr = ['add', 'a', 'list', 'l', 'init', 'i', 'delete', 'd', 'map', 'm']
+
+let cmd = args._[0];
+
+if (cmd && cmdArr.indexOf(cmd) === -1) {
+    console.log(chalk.red(`Error: \'${cmd}\' 不是一个有效的命令，尝试重新键入有效的命令`))
+    console.log(chalk.gray('--------------尝试使用 \'leego -h\' 或者 \'leego --help\' 来获取更多提示信息'))
+    process.exit(1)
+}
+
+
+program
+    .version(require('../package').version)
+
+program
+    .usage('<command>')
+
+program
+    .command('add')
+    .description(chalk.gray('Add a new template（添加一个新的模板）'))
+    .alias('a')
+    .action(() => {
+        require(res('add'))
+    })
+
+program
+    .command('list')
+    .description(chalk.gray('List all the templates（列出所有模板）'))
+    .alias('l')
+    .action(() => {
+        require(res('list'))
+    })
+
+program
+    .command('init')
+    .description(chalk.gray('Generate a new project（初始化生成一个新的项目）'))
+    .alias('i')
+    .action(() => {
+        require(res('init'))
+    })
+
+program
+    .command('delete')
+    .description(chalk.gray('Delete a template（删除一个模板）'))
+    .alias('d')
+    .action(() => {
+        require(res('delete'))
+    })
+
+program
+    .command('map')
+    .description(chalk.gray('Place files to diffirent position（替换文件到不同位置）'))
+    .alias('m')
+    .action(() => {
+        require(res('map'))
+    })
+
+program.parse(process.argv)
+
+if (!program.args.length) {
+    program.help()
+}
