@@ -5,6 +5,14 @@
   "bin": {
     "leego": "bin/leego"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeboya/leego-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leeboya/leego-cli/issues"
+  },
+  "homepage": "https://github.com/leeboya/leego-cli#readme",
   "keywords": [
     "leego",
     "leego-cli",
