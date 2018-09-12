@@ -1,6 +1,6 @@
 {
   "name": "leego-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple CLI for creating your web projects / Front End Env",
   "bin": {
     "leego": "bin/leego"
