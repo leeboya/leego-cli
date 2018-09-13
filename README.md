@@ -65,7 +65,7 @@ $ leego init
 
 ? Template name（模板名称）: test
 ? Project name（项目名称）: simpleTemp
-? Where to init the project（指定一个初始化模板路径，默认在当前目录下）: ./temp
+? Where to init the project（指定一个初始化模板路径，默认在./templates下）: ./temp
 / Downloading template（下载模板中）...
 New project has been initialized successfully（新项目已经初始化下载完毕！）!
 ```

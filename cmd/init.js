@@ -34,8 +34,8 @@ const question = [
     {
         type: 'input',
         name: 'place',
-        message: chalk.gray('Where to init the project（指定一个初始化模板路径，默认在当前目录下）:'),
-        default: './temp'
+        message: chalk.gray('Where to init the project（指定一个初始化模板路径，默认在./templates下）:'),
+        default: './templates'
     }
 ]
 
